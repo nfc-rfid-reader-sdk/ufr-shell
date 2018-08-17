@@ -1,3 +1,17 @@
+Conmmand switches :
+
+
+[Applies to each return parameter]
+
+-h  Hexadecimal output
+-s  String output
+-d  Decimal output
+
+To change default behavior, use command SetOutput [-h|-s|-d]
+
+List of all supported functions:
+
+
 ReaderOpen	:	   Open reader communication port.|Parameters No parameters required	
 ReaderOpenEx	:	   Open reader communication port in several different ways. Can be used for establishing communication with COM port too.|Parameters reader_type, port_name, port_interface	
 ReaderOpenByType	:	   Opens a port of connected reader using readers family type. Useful for speed up opening for non uFR basic reader type (e.g. BaseHD with uFR support).|Parameters reader_type	
@@ -30,14 +44,14 @@ SetAsyncCardIdSendConfig	:	   Function sets configuration parameters for this fe
 GetAsyncCardIdSendConfig	:	   Returns info about parameters configured with previous function.|Parameters send_enable, prefix_enable, prefix, suffix, send_removed_enable, async_baud_rate	
 SetAsyncCardIdSendConfigEx	:	   Function sets configuration parameters for this feature.|Parameters send_enable, prefix_enable, prefix, suffix, send_removed_enable, reverse_byte_order, decimal_representation, async_baud_rate	
 GetAsyncCardIdSendConfigEx	:	   Returns info about parameters configured with previous function.|Parameters send_enable, prefix_enable, prefix, suffix, send_removed_enable, reverse_byte_order, decimal_representation, async_baud_rate	
-ReaderUISignal	:	   This function turns sound and light reader signals. Sound signals are performed by reader’s buzzer and light signals are performed by reader’s LEDs.|Parameters light_signal_mode, beep_signal_mode	
+ReaderUISignal	:	   This function turns sound and light reader signals. Sound signals are performed by readers buzzer and light signals are performed by readers LEDs.|Parameters light_signal_mode, beep_signal_mode	
 UfrRedLightControl	:	   If light_status, value is 1, red light will be constantly turned on until receive light_status value 0.|Parameters light_status	
 SetSpeakerFrequency	:	   This function plays constant sound of frequency Hertz|Parameters frequency	
 GetDlogicCardType	:	   This function returns card type according to DlogicCardType enumeration|Parameters lpucCardType	
 GetNfcT2TVersion	:	   This function returns 8 bytes of the T2T version. All modern T2T chips support this functionality and have in common a total of 8 byte long version response. This function is primarily intended to use with NFC_T2T_GENERIC tags (i.e. tags which return 0x0C in the *lpucCardType parameter of the GetDlogicCardType()).|Parameters lpucVersionResponse	
 GetCardIdEx	:	   This function returns UID of card actually present in RF field of reader. It can handle all three known types : 4, 7 and 10 byte long UIDs.|Parameters lpucSak, aucUid, lpucUidSize	
 GetCardId	:	   This function returns UID of card actually present in RF field of reader. It can handle all three known types : 4, 7 and 10 byte long UIDs.|Parameters lpucSak, aucUid, lpucUidSize	
-GetLastCardIdEx	:	   Returns card UID as a 4-byte array. This function is deprecated and used only for backward compatibility with older firmware versions (before v2.0). We strongly discourage use of this function. This function can’t successfully handle 7 byte UIDS.|Parameters lpucCardType, lpucCardSerial	
+GetLastCardIdEx	:	   Returns card UID as a 4-byte array. This function is deprecated and used only for backward compatibility with older firmware versions (before v2.0). We strongly discourage use of this function. This function cant successfully handle 7 byte UIDS.|Parameters lpucCardType, lpucCardSerial	
 BlockRead	:	   Read particular block using absolute Block address.|Parameters data, block_address, auth_mode, key_index	
 BlockRead_AKM1	:	   Read particular block using absolute Block address.|Parameters data, block_address, auth_mode	
 BlockRead_AKM2	:	   Read particular block using absolute Block address.|Parameters data, block_address, auth_mode	
@@ -66,10 +80,10 @@ LinRowRead	:	   Group of functions for linear reading in uFR firmware utilise FA
 LinRowRead_AKM1	:	   Group of functions for linear reading in uFR firmware utilise FAST_READ ISO 14443-3 command with NTAG21x and Mifare Ultralight EV1 tags.|Parameters data, linear_address, length, bytes_returned, auth_mode	
 LinRowRead_AKM2	:	   Group of functions for linear reading in uFR firmware utilise FAST_READ ISO 14443-3 command with NTAG21x and Mifare Ultralight EV1 tags.|Parameters data, linear_address, length, bytes_returned, auth_mode	
 LinRowRead_PK	:	   Group of functions for linear reading in uFR firmware utilise FAST_READ ISO 14443-3 command with NTAG21x and Mifare Ultralight EV1 tags.|Parameters data, linear_address, length, bytes_returned, auth_mode, key	
-LinearFormatCard	:	   This function is specific to Mifare Classic cards only. It performs “Format card” operation - write new Sector Trailer values on whole card at once.|Parameters new_key_A, blocks_access_bits, sector_trailers_access_bits, sector_trailers_byte9, new_key_B, lpucSectorsFormatted, auth_mode, key_index	
-LinearFormatCard_AKM1	:	   This function is specific to Mifare Classic cards only. It performs “Format card” operation - write new Sector Trailer values on whole card at once.|Parameters new_key_A, blocks_access_bits, sector_trailers_access_bits, sector_trailers_byte9, new_key_B, lpucSectorsFormatted, auth_mode	
-LinearFormatCard_AKM2	:	   This function is specific to Mifare Classic cards only. It performs “Format card” operation - write new Sector Trailer values on whole card at once.|Parameters new_key_A, blocks_access_bits, sector_trailers_access_bits, sector_trailers_byte9, new_key_B, lpucSectorsFormatted, auth_mode	
-LinearFormatCard_PK	:	   This function is specific to Mifare Classic cards only. It performs “Format card” operation - write new Sector Trailer values on whole card at once.|Parameters new_key_A, blocks_access_bits, sector_trailers_access_bits, sector_trailers_byte9, new_key_B, lpucSectorsFormatted, auth_mode, key	
+LinearFormatCard	:	   This function is specific to Mifare Classic cards only. It performs Format card operation - write new Sector Trailer values on whole card at once.|Parameters new_key_A, blocks_access_bits, sector_trailers_access_bits, sector_trailers_byte9, new_key_B, lpucSectorsFormatted, auth_mode, key_index	
+LinearFormatCard_AKM1	:	   This function is specific to Mifare Classic cards only. It performs Format card operation - write new Sector Trailer values on whole card at once.|Parameters new_key_A, blocks_access_bits, sector_trailers_access_bits, sector_trailers_byte9, new_key_B, lpucSectorsFormatted, auth_mode	
+LinearFormatCard_AKM2	:	   This function is specific to Mifare Classic cards only. It performs Format card operation - write new Sector Trailer values on whole card at once.|Parameters new_key_A, blocks_access_bits, sector_trailers_access_bits, sector_trailers_byte9, new_key_B, lpucSectorsFormatted, auth_mode	
+LinearFormatCard_PK	:	   This function is specific to Mifare Classic cards only. It performs Format card operation - write new Sector Trailer values on whole card at once.|Parameters new_key_A, blocks_access_bits, sector_trailers_access_bits, sector_trailers_byte9, new_key_B, lpucSectorsFormatted, auth_mode, key	
 GetCardSize	:	   Function returns size of user data space on the card (LinearSize), and size of total data space on the card (RawSize). The user data space is accessed via functions LinearWrite and LinearRead. Total data space is accessed via functions LinRowWrite and LinRowRead. For example Mifare Classic 1K card have 752 bytes of user data space (sector trailers and block 0 are not included), and 1024 bytes of total data space.|Parameters lpulLinearSize, lpulRawSize	
 SectorTrailerWrite	:	   This function is specific to Mifare Classic cards only. It writes new Sector Trailer value at one Sector Trailer.|Parameters addressing_mode, address, new_key_A, block0_access_bits, block1_access_bits, block2_access_bits, sector_trailer_access_bits, sector_trailer_byte9, new_key_B, auth_mode, key_index	
 SectorTrailerWrite_AKM1	:	   This function is specific to Mifare Classic cards only. It writes new Sector Trailer value at one Sector Trailer.|Parameters addressing_mode, address, new_key_A, block0_access_bits, block1_access_bits, block2_access_bits, sector_trailer_access_bits, sector_trailer_byte9, new_key_B, auth_mode	
@@ -103,7 +117,7 @@ ValueBlockDecrement	:	   Decrements particular Value block with specified value 
 ValueBlockDecrement_AKM1	:	   Decrements particular Value block with specified value using absolute Block address.|Parameters int32_tdecrement_value, block_address, auth_mode	
 ValueBlockDecrement_AKM2	:	   Decrements particular Value block with specified value using absolute Block address.|Parameters int32_tdecrement_value, block_address, auth_mode	
 ValueBlockDecrement_PK	:	   Decrements particular Value block with specified value using absolute Block address.|Parameters int32_tdecrement_value, block_address, auth_mode, key	
-write_ndef_record_mirroring	:	   This function works the same as the ?write_ndef_record(),? with the additional “UID and / or NFC counter mirror” features support. NTAG 21x family of the devices offers these specific features.|Parameters message_nr, tnf, type_record, type_length, id, id_length, payload, payload_length, card_formated, intuse_uid_ascii_mirror, intuse_counter_ascii_mirror, payload_mirroring_pos	
+write_ndef_record_mirroring	:	   This function works the same as the ?write_ndef_record(),? with the additional UID and / or NFC counter mirror features support. NTAG 21x family of the devices offers these specific features.|Parameters message_nr, tnf, type_record, type_length, id, id_length, payload, payload_length, card_formated, intuse_uid_ascii_mirror, intuse_counter_ascii_mirror, payload_mirroring_pos	
 uFR_int_GetDesfireUid	:	   returns Random Number Tag 0x08 and 3 bytes Random Number (4 bytes Random ID). This function returns Unique ID of card, if the Random ID is used.|Parameters aes_key_nr, aid, aid_key_nr, card_uid, card_uid_len, card_status, exec_time	
 uFR_int_GetDesfireUid_PK	:	   returns Random Number Tag 0x08 and 3 bytes Random Number (4 bytes Random ID). This function returns Unique ID of card, if the Random ID is used.|Parameters aes_key_ext, aid, aid_key_nr, card_uid, card_uid_len, card_status, exec_time	
 uFR_int_DesfireFreeMem	:	   Function returns the available bytes on the card.|Parameters free_mem_byte, card_status, exec_time	
@@ -148,7 +162,7 @@ uFR_int_DesfireDecreaseValueFile	:	   Function allow to decrease value from valu
 uFR_int_DesfireDecreaseValueFile_PK	:	   Function allow to decrease value from value files. Debit command requires a preceding authentication with on of the keys specified for Read, Write or Read&Write access.|Parameters aes_key_ext, aid, aid_key_nr, file_id, communication_settings, value, card_status, exec_time	
 uFR_int_DesfireDecreaseValueFile_no_auth	:	   Function allow to decrease value from value files. Debit command requires a preceding authentication with on of the keys specified for Read, Write or Read&Write access.|Parameters aid, aid_key_nr, file_id, communication_settings, value, card_status, exec_time	
 ReadECCSignature	:	   This function returns ECC signature of? the card chip UID. Card chip UID is signed using EC private key known only to a manufacturer.|Parameters lpucECCSignature	MAX_UID_LEN], lpucUidLen, lpucDlogicCardType";
-ReadCounter	:	   This function is used to read one of the three 24-bit one-way counters in Ultralight EV1 chip family. Those counters can’t be password protected. In the initial Ultralight EV1 chip state, the counter values are set to 0.|Parameters counter_address, value	
+ReadCounter	:	   This function is used to read one of the three 24-bit one-way counters in Ultralight EV1 chip family. Those counters cant be password protected. In the initial Ultralight EV1 chip state, the counter values are set to 0.|Parameters counter_address, value	
 IncrementCounter	:	   This function is used to increment one of the three 24-bit one-way counters in Ultralight EV1 chip family. Those counters can't be password protected. If the sum of the addressed counter value and the increment value is higher than 0xFFFFFF, the tag replies with an error and does not update the respective counter.|Parameters counter_address, inc_value	
 ReadNFCCounter	:	   This function is used to read 24-bit NFC counter in NTAG 213, NTAG 215 and NTAG 216 chips without using password authentication. If access to NFC counter is configured to be password protected, this function will return COUNTER_ERROR.|Parameters value	
 ReadNFCCounterPwdAuth_RK	:	   This function is used to read 24-bit NFC counter in NTAG 213, NTAG 215 and NTAG 216 chips without using password authentication. If access to NFC counter is configured to be password protected, this function will return COUNTER_ERROR.|Parameters value, reader_key_index	
@@ -224,6 +238,6 @@ WriteEmulationNdef	:	   Function store a message record for NTAG emulation mode 
 TagEmulationStart	:	   Put the reader permanently in a NDEF tag emulation mode. Only way for a reader to exit from this mode is to receive the TAG_EMULATION_STOP command|Parameters No parameters required	
 ExitShareRamCommMode	:	   The permanent exit from mode that use shared RAM. After execution of this function, must be executed function TagEmulationStop.|Parameters No parameters required	
 uFR_APDU_Transceive	:	   |Parameters cls, ins, p0, p1, data_out, data_out_len, data_in, max_data_in_len, response_len, send_le, apdu_status	
-APDUHexStrTransceive	:	   Using this function, you can send C–APDU in the c_string (zero terminated) containing pairs of the hexadecimal digits. Pairs of the hexadecimal digits can be delimited by any of the punctuation characters or white space.|Parameters c_apdu, r_apdu	
+APDUHexStrTransceive	:	   Using this function, you can send CAPDU in the c_string (zero terminated) containing pairs of the hexadecimal digits. Pairs of the hexadecimal digits can be delimited by any of the punctuation characters or white space.|Parameters c_apdu, r_apdu	
 APDUPlainTransceive	:	   This is binary alternative function to the APDUHexStrTransceive().|Parameters c_apdu, c_apdu_len, r_apdu, r_apdu_len	
 APDUTransceive	:	   This is exploded binary alternative function intended for support APDU commands in ISO 14443-4A tags.|Parameters cls, ins, p0, p1, data_out, Nc, data_in, Ne, send_le, apdu_status	
